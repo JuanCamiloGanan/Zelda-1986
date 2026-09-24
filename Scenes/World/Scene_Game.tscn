@@ -4,7 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://cabom0d8ficmx" path="res://Assets/Maps/ZeldaOverworldMapQ1A.png" id="2_gr650"]
 [ext_resource type="PackedScene" uid="uid://cli22751ratij" path="res://Scenes/Player/player.tscn" id="3_dr0vg"]
 [ext_resource type="Script" uid="uid://cil54w4ibgtb7" path="res://Scenes/World/screen_transition.gd" id="4_gr650"]
-[ext_resource type="PackedScene" uid="uid://cl7qqs7msscvo" path="res://Scenes/octorok_red.tscn" id="5_dr0vg"]
+[ext_resource type="PackedScene" uid="uid://ctmuygwq6r2w7" path="res://Scenes/octorok_red.tscn" id="5_dr0vg"]
+[ext_resource type="PackedScene" uid="uid://dxk6khrcp500a" path="res://Scenes/Enemies/Moldorm.tscn" id="6_s3431"]
+[ext_resource type="Script" uid="uid://cbl3d0gs1owtf" path="res://Scripts/Enemies/octorok_red.gd" id="6_yoeqs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hh5uf"]
 texture = ExtResource("1_e1got")
@@ -133,6 +135,10 @@ shape = SubResource("RectangleShape2D_4e15o")
 position = Vector2(2458, 437)
 collision_layer = 2
 collision_mask = 524289
+script = ExtResource("6_yoeqs")
+
+[node name="Moldorm" parent="." unique_id=333547780 instance=ExtResource("6_s3431")]
+position = Vector2(2396, 396)
 
 [connection signal="body_entered" from="Camera2D/ScreenTransition/Area2D_UP" to="Camera2D/ScreenTransition" method="_on_area_2d_up_body_entered"]
 [connection signal="body_entered" from="Camera2D/ScreenTransition/Area2D_DOWN" to="Camera2D/ScreenTransition" method="_on_area_2d_down_body_entered"]

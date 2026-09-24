@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://dxk6khrcp500a"]
+
+[ext_resource type="Script" uid="uid://dxrb55vlgm33e" path="res://Scripts/Enemies/moldorm.gd" id="1_bo63u"]
+[ext_resource type="Texture2D" uid="uid://cax4gf1hl71gj" path="res://Assets/03_Underworld_Enemies/Moldorm Styles.png" id="2_b02tr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b2hyj"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qe4n8"]
+radius = 6.0
+
+[node name="Moldorm" type="CharacterBody2D" unique_id=333547780]
+position = Vector2(102, 79)
+collision_layer = 2
+collision_mask = 524296
+script = ExtResource("1_bo63u")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=257625164]
+position = Vector2(3.5762787e-07, -0.49999976)
+scale = Vector2(0.042194095, 0.031358887)
+texture = ExtResource("2_b02tr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=94268926]
+visible = false
+shape = SubResource("CircleShape2D_b2hyj")
+
+[node name="Segmentos" type="Node" parent="." unique_id=750248055]
+
+[node name="Segment1" type="Area2D" parent="Segmentos" unique_id=1017209448]
+scale = Vector2(4, 4)
+collision_layer = 3
+collision_mask = 524290
+
+[node name="Sprite2D" type="Sprite2D" parent="Segmentos/Segment1" unique_id=1859922127]
+position = Vector2(-7.6293945e-06, 7.6293945e-06)
+scale = Vector2(0.01107598, 0.008275262)
+texture = ExtResource("2_b02tr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Segmentos/Segment1" unique_id=457198374]
+visible = false
+scale = Vector2(0.25, 0.25)
+shape = SubResource("CircleShape2D_b2hyj")
+
+[node name="Segment2" type="Area2D" parent="Segmentos" unique_id=1786193347]
+scale = Vector2(4, 4)
+collision_layer = 3
+collision_mask = 524290
+
+[node name="Sprite2D" type="Sprite2D" parent="Segmentos/Segment2" unique_id=1918382983]
+position = Vector2(-7.6293945e-06, 7.6293945e-06)
+scale = Vector2(0.01107598, 0.008275262)
+texture = ExtResource("2_b02tr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Segmentos/Segment2" unique_id=878143345]
+visible = false
+scale = Vector2(0.25, 0.25)
+shape = SubResource("CircleShape2D_b2hyj")
+
+[node name="Segment3" type="Area2D" parent="Segmentos" unique_id=1904351623]
+scale = Vector2(4, 4)
+collision_layer = 3
+collision_mask = 524290
+
+[node name="Sprite2D" type="Sprite2D" parent="Segmentos/Segment3" unique_id=1137441978]
+position = Vector2(-7.6293945e-06, 7.6293945e-06)
+scale = Vector2(0.01107598, 0.008275262)
+texture = ExtResource("2_b02tr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Segmentos/Segment3" unique_id=86754985]
+visible = false
+scale = Vector2(0.25, 0.25)
+shape = SubResource("CircleShape2D_b2hyj")
+
+[node name="Segment4" type="Area2D" parent="Segmentos" unique_id=2028511439]
+scale = Vector2(4, 4)
+collision_layer = 3
+collision_mask = 524290
+
+[node name="Sprite2D" type="Sprite2D" parent="Segmentos/Segment4" unique_id=827631326]
+position = Vector2(-7.6293945e-06, 7.6293945e-06)
+scale = Vector2(0.01107598, 0.008275262)
+texture = ExtResource("2_b02tr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Segmentos/Segment4" unique_id=1631829738]
+visible = false
+scale = Vector2(0.25, 0.25)
+shape = SubResource("CircleShape2D_b2hyj")
+
+[node name="Segment5" type="Area2D" parent="Segmentos" unique_id=876764884]
+scale = Vector2(4, 4)
+collision_layer = 3
+collision_mask = 524290
+
+[node name="Sprite2D" type="Sprite2D" parent="Segmentos/Segment5" unique_id=1729065144]
+position = Vector2(-7.6293945e-06, 7.6293945e-06)
+scale = Vector2(0.01107598, 0.008275262)
+texture = ExtResource("2_b02tr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Segmentos/Segment5" unique_id=26727983]
+visible = false
+scale = Vector2(0.25, 0.25)
+shape = SubResource("CircleShape2D_b2hyj")
+
+[node name="DetectorLimites" type="Area2D" parent="." unique_id=934606104]
+collision_layer = 2
+collision_mask = 524290
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectorLimites" unique_id=2028488833]
+shape = SubResource("CircleShape2D_qe4n8")
+
+[node name="RandomDirectionTimer" type="Timer" parent="." unique_id=1290394849]
+wait_time = 5.0
+autostart = true
+
+[connection signal="area_entered" from="DetectorLimites" to="." method="_on_detector_limites_area_entered"]
+[connection signal="timeout" from="RandomDirectionTimer" to="." method="_on_random_direction_timer_timeout"]
